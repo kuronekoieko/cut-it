@@ -17,15 +17,38 @@ public class GameManager : MonoBehaviour
     [TextAreaAttribute(10, 10)] [SerializeField] string document;
     public static GameManager i;
     public GameState GameState { get; set; }
+    Animator[] animators;
 
     void Awake()
     {
         i = this;
+        animators = FindObjectsOfType<Animator>();
     }
 
     void Start()
     {
         GameState = GameState.Waiting;
+    }
+
+    private void Update()
+    {
+        switch (Variables.screenState)
+        {
+            case ScreenState.Clear:
+                foreach (var animator in animators)
+                {
+                    animator.SetBool("Clear", true);
+                }
+                break;
+            case ScreenState.Failed:
+                foreach (var animator in animators)
+                {
+                    animator.SetBool("Failed", true);
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     public void ProportionCheck()

@@ -386,7 +386,8 @@ namespace MeshCutter
             {
                 // Destroy target object.
                 target.transform.localScale = Vector3.zero;
-                Destroy(target.gameObject);
+                target.gameObject.SetActive(false);
+                //Destroy(target.gameObject);
             }
 
             if (OnCutted != null)

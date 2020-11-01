@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _autoDestroyTarget: 1
   _needAnimation: 0
-  _cutDefaultMaterial: {fileID: 0}
+  _cutDefaultMaterial: {fileID: 2100000, guid: 5cd1b0fe831124e65bc094599d7f9151, type: 2}
 --- !u!114 &700400364
 MonoBehaviour:
   m_ObjectHideFlags: 0
