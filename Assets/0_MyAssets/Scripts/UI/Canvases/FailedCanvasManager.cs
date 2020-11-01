@@ -29,7 +29,7 @@ public class FailedCanvasManager : BaseCanvasManager
 
     protected override void OnOpen()
     {
-        DOVirtual.DelayedCall(0f + Variables.screenDelaySec, () =>
+        DOVirtual.DelayedCall(1.5f + Variables.screenDelaySec, () =>
         {
             gameObject.SetActive(true);
         });
