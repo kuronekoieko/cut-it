@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace MeshCutter
 {
     /// <summary>
     /// Represent target for mesh cutter.
     /// </summary>
-    //[RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(MeshCollider))]
+    [RequireComponent(typeof(Rigidbody))]
     public class CutterTarget : MonoBehaviour
     {
 
