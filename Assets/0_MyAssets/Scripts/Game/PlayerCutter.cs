@@ -28,7 +28,7 @@ public class PlayerCutter : MonoBehaviour
 
     void Update()
     {
-        transform.forward = startPosObj - Camera.main.transform.position;
+        transform.forward = Camera.main.transform.forward;
         TapType tapType;
         if (Variables.screenState != ScreenState.Game) { return; }
         if (succeededCut) { return; }
