@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d075e443ddc624db302098f7826153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cutMaterial: {fileID: 0}
+  _cutMaterial: {fileID: 2100000, guid: 5cd1b0fe831124e65bc094599d7f9151, type: 2}
 --- !u!1001 &184641461747989717
 PrefabInstance:
   m_ObjectHideFlags: 0
