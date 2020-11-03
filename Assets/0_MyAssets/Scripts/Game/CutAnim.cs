@@ -12,12 +12,12 @@ public class CutAnim : MonoBehaviour
 
     public void Anim(CutterTarget originCutterTarget, CutterTarget cutterTarget)
     {
-        return;
         Vector3 vector = cutterTarget.Renderer.bounds.center - originCutterTarget.Renderer.bounds.center;
         cutterTarget.transform.position += vector.normalized * 0.01f;
-        Vector3 force = vector.normalized;
-        force.x *= 100f;
-        force.y *= 200f;
-        //cutterTarget.Rigidbody.AddForce(force, ForceMode.Acceleration);
+        float power = 10f;
+        Vector3 force = vector.normalized * power;
+        force.x *= 1f;
+        force.y *= 2f;
+        cutterTarget.Rigidbody.AddForce(force, ForceMode.Acceleration);
     }
 }
