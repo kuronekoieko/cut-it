@@ -13,22 +13,21 @@ public class PlayerCutter : MonoBehaviour
     bool succeededCut;
     Tween cutterMoveTween;
     Tween proportionCheckTween;
-    Vector3 startPosObj;
+    Vector3 targetPos;
     void Awake()
     {
         cutter = GetComponent<Cutter>();
         cutCollider = GetComponent<Collider>();
+        targetPos = FindObjectOfType<CutterTarget>().transform.position;
     }
 
     void Start()
     {
         cutCollider.enabled = false;
-        startPosObj = transform.position;
     }
 
     void Update()
     {
-        transform.forward = Camera.main.transform.forward;
         TapType tapType;
         if (Variables.screenState != ScreenState.Game) { return; }
         if (succeededCut) { return; }
@@ -50,7 +49,8 @@ public class PlayerCutter : MonoBehaviour
                 if (TapManager.i.GetMouseButtonUp(out tapType))
                 {
                     endPos = WorldPosOnTap();
-                    MoveCutter();
+                    //MoveCutter();
+                    MoveCutterRotate();
                     GameManager.i.GameState = GameState.ScissorMoving;
                 }
                 break;
@@ -68,7 +68,7 @@ public class PlayerCutter : MonoBehaviour
     Vector3 WorldPosOnTap()
     {
         var mousePosition = Input.mousePosition;
-        mousePosition.z = Vector3.Distance(startPosObj, Camera.main.transform.position);
+        mousePosition.z = Vector3.Distance(targetPos, Camera.main.transform.position);
         return Camera.main.ScreenToWorldPoint(mousePosition);
     }
 
@@ -77,6 +77,28 @@ public class PlayerCutter : MonoBehaviour
         cutCollider.enabled = true;
         transform.position = startPos;
         cutterMoveTween = transform.DOMove(endPos, 0.3f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            cutCollider.enabled = false;
+            if (succeededCut) proportionCheckTween = DOVirtual.DelayedCall(0.5f, () => GameManager.i.ProportionCheck());
+            GameManager.i.GameState = GameState.ScissorStop;
+        });
+    }
+
+    void MoveCutterRotate()
+    {
+        Vector3 startVec = startPos - Camera.main.transform.position;
+        Vector3 endVec = endPos - Camera.main.transform.position;
+        transform.position = Camera.main.transform.position;
+        transform.forward = startVec;
+        cutCollider.enabled = true;
+        float t = 0f;
+        cutterMoveTween = DOTween.To(() => t, (x) => t = x, 1f, 0.3f)
+        .SetEase(Ease.Linear)
+        .OnUpdate(() =>
+        {
+            transform.forward = Vector3.Lerp(startVec, endVec, t);
+        })
+        .OnComplete(() =>
         {
             cutCollider.enabled = false;
             if (succeededCut) proportionCheckTween = DOVirtual.DelayedCall(0.5f, () => GameManager.i.ProportionCheck());
