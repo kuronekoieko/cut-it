@@ -14,11 +14,13 @@ public class PlayerCutter : MonoBehaviour
     Tween cutterMoveTween;
     Tween proportionCheckTween;
     Vector3 targetPos;
+    CutAnim cutAnim;
     void Awake()
     {
         cutter = GetComponent<Cutter>();
         cutCollider = GetComponent<Collider>();
         targetPos = FindObjectOfType<CutterTarget>().transform.position;
+        cutAnim = GetComponent<CutAnim>();
     }
 
     void Start()
@@ -79,7 +81,7 @@ public class PlayerCutter : MonoBehaviour
         cutterMoveTween = transform.DOMove(endPos, 0.3f).SetEase(Ease.Linear).OnComplete(() =>
         {
             cutCollider.enabled = false;
-            if (succeededCut) proportionCheckTween = DOVirtual.DelayedCall(0.5f, () => GameManager.i.ProportionCheck());
+            if (succeededCut) proportionCheckTween = DOVirtual.DelayedCall(cutAnim.Duration, () => GameManager.i.ProportionCheck());
             GameManager.i.GameState = GameState.ScissorStop;
         });
     }
@@ -101,7 +103,7 @@ public class PlayerCutter : MonoBehaviour
         .OnComplete(() =>
         {
             cutCollider.enabled = false;
-            if (succeededCut) proportionCheckTween = DOVirtual.DelayedCall(0.5f, () => GameManager.i.ProportionCheck());
+            if (succeededCut) proportionCheckTween = DOVirtual.DelayedCall(cutAnim.Duration, () => GameManager.i.ProportionCheck());
             GameManager.i.GameState = GameState.ScissorStop;
         });
     }
