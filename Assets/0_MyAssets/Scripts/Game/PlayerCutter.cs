@@ -51,8 +51,8 @@ public class PlayerCutter : MonoBehaviour
                 if (TapManager.i.GetMouseButtonUp(out tapType))
                 {
                     endPos = WorldPosOnTap();
-                    //MoveCutter();
-                    MoveCutterRotate();
+                    MoveCutter();
+                    //MoveCutterRotate();
                     GameManager.i.GameState = GameState.ScissorMoving;
                 }
                 break;
