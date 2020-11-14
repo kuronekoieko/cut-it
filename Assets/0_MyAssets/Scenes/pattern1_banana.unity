@@ -133,6 +133,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banana
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 86afc920b6f5bfc41922b684c249def3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.076
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 86afc920b6f5bfc41922b684c249def3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.3132e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 86afc920b6f5bfc41922b684c249def3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.052
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 86afc920b6f5bfc41922b684c249def3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2006
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 86afc920b6f5bfc41922b684c249def3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2006
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 86afc920b6f5bfc41922b684c249def3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2006
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 86afc920b6f5bfc41922b684c249def3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.025
