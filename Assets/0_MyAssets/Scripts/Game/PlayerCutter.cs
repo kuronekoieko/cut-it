@@ -78,6 +78,7 @@ public class PlayerCutter : MonoBehaviour
     {
         cutCollider.enabled = true;
         transform.position = startPos;
+        transform.forward = targetPos - Camera.main.transform.position;
         cutterMoveTween = transform.DOMove(endPos, 0.3f).SetEase(Ease.Linear).OnComplete(() =>
         {
             cutCollider.enabled = false;
