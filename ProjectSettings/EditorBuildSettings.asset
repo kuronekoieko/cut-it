@@ -9,18 +9,18 @@ EditorBuildSettings:
     path: Assets/0_MyAssets/Scenes/UIScene.unity
     guid: 655efcd1f35d84a17811e309dc5ffc43
   - enabled: 0
-    path: Assets/0_MyAssets/Scenes/stage002.unity
+    path: Assets/0_MyAssets/Scenes/pattern1_pizza.unity
     guid: 37e597a737ba343868071078b2dc966f
   - enabled: 0
-    path: Assets/0_MyAssets/Scenes/stage005.unity
+    path: Assets/0_MyAssets/Scenes/pattern1_humburger.unity
     guid: d6bfd0f337fbd4ccfbc40d7fb49a2b27
   - enabled: 1
-    path: Assets/0_MyAssets/Scenes/stage001.unity
+    path: Assets/0_MyAssets/Scenes/pattern1_apple.unity
     guid: 490fe59b17ad34da3b4ce0588a77b3c9
   - enabled: 0
-    path: Assets/0_MyAssets/Scenes/stage004.unity
+    path: Assets/0_MyAssets/Scenes/pattern1_banana.unity
     guid: ac261a27cbcee4a94be0c0705d735926
   - enabled: 0
-    path: Assets/0_MyAssets/Scenes/stage006.unity
+    path: Assets/0_MyAssets/Scenes/pattern1_cake.unity
     guid: 477365dcf6bfb44888a79abfe187fdc4
   m_configObjects: {}
